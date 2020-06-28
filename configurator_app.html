@@ -1,0 +1,198 @@
+<!-- Copyright (C) 2020  <name of author>
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+  
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+  
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+    
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Configurator App</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+
+<link rel="stylesheet" href="configurator_app.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lexend+Tera" rel="stylesheet"> 
+
+
+<script type="text/javascript" src="..\..\dist\b4w.js"></script>
+
+<script type="text/javascript" src="configurator_app.js"></script>
+
+</head>
+
+<body>
+	<div class="controls-container" id="controls-container">
+
+		<div style="color: white;">
+			Mask Configurations
+		</div>
+		<br>
+		<div class="head">
+		<label class="switch">
+			<input type="checkbox" id="face_switch" checked="true">
+			<span style="color:white">Show Head</span>
+		</label>
+		</div>
+
+
+		<div class="ui_block" id="fabric" >
+			<div style="color: white;">
+				Outside Fabric
+				<br>
+				<label class="switch">
+					<input type="checkbox" id="2color_switch" checked="true">
+					<span style="color:white">2 colors</span>
+					</label>
+			</div>
+			<div class="row"></div>
+			<div class="color_div"id="left_side">
+				<p style="color:white">Left Side</p>
+				<label class="color_inline_label">
+					<input type="radio" name="left_color" class="custom_radio_btn" id="left_white_btn">
+					<div class="color_btn" style="background-color: #F3F3F3;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="left_color" class="custom_radio_btn" id="left_red_btn">
+					<div class="color_btn" style="background-color: #E70000;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="left_color" class="custom_radio_btn" id="left_bordeaux_btn">
+					<div class="color_btn" style="background-color: #6C1600;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="left_color" class="custom_radio_btn" id="left_tanne_green_btn">
+					<div class="color_btn" style="background-color: #002600;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="left_color" class="custom_radio_btn" id="left_royal_blue_btn">
+					<div class="color_btn" style="background-color: #1929CB;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="left_color" class="custom_radio_btn" id="left_marine_blue_btn">
+					<div class="color_btn" style="background-color: #192459;;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="left_color" class="custom_radio_btn" id="left_dark_grey_btn" checked="true">
+					<div class="color_btn" style="background-color: #646464;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="left_color" class="custom_radio_btn" id="left_black_btn">
+					<div class="color_btn"  style="background-color: #000000;"></div>
+				</label>
+			</div>
+
+			<div class="color_div" id="right_side">
+				<p style="color:white">Right Side</p>
+
+				<label class="color_inline_label">
+					<input type="radio" name="right_color" class="custom_radio_btn" id="right_white_btn" >
+					<div class="color_btn" style="background-color: #F3F3F3;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="right_color" class="custom_radio_btn" id="right_red_btn">
+					<div class="color_btn" style="background-color: #E70000;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="right_color" class="custom_radio_btn" id="right_bordeaux_btn">
+					<div class="color_btn" style="background-color: #6C1600;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="right_color" class="custom_radio_btn" id="right_tanne_green_btn">
+					<div class="color_btn" style="background-color: #002600;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="right_color" class="custom_radio_btn" id="right_royal_blue_btn">
+					<div class="color_btn" style="background-color: #1929CB;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="right_color" class="custom_radio_btn" id="right_marine_blue_btn">
+					<div class="color_btn" style="background-color: #192459;;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="right_color" class="custom_radio_btn" id="right_dark_grey_btn" checked="true">
+					<div class="color_btn" style="background-color: #646464;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="right_color" class="custom_radio_btn" id="right_black_btn">
+					<div class="color_btn"  style="background-color: #000000;"></div>
+				</label>
+			</div>
+		</div>
+
+		<div class="ui_block" id="Band" >
+			<div style="color: white;">
+				Band
+			</div>
+			<div class="row" ></div>
+			
+			<div>
+				<div class="color_div">
+					<label class="color_inline_label">
+						<input type="radio" name="band_color" class="custom_radio_btn" id="band_white_btn">
+						<div class="color_btn" style="background-color: #F3F3F3;"></div>
+					</label>
+					<label class="color_inline_label">
+						<input type="radio" name="band_color" class="custom_radio_btn" id="band_black_btn" checked="true">
+						<div class="color_btn"  style="background-color: #000000;"></div>
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui_block" id="Cord" >
+			<div style="color: white;">
+				Cord
+			</div>
+			<div class="row" ></div>
+			<div class="color_div">
+				<label class="color_inline_label">
+					<input type="radio" name="cord_color" class="custom_radio_btn" id="cord_white_btn" checked="true">
+					<div class="color_btn" style="background-color: #F3F3F3;"></div>
+				</label>
+				<label class="color_inline_label">
+					<input type="radio" name="cord_color" class="custom_radio_btn" id="cord_black_btn">
+					<div class="color_btn"  style="background-color: #000000;"></div>
+				</label>
+			</div>
+		</div>
+
+		<div class="ui_block" id="Cord" >
+			<div style="color: white;">
+				Stitch
+			</div>
+			<div class="row"></div>
+			<div class="color_div">
+				<label class="color_inline_label">
+					<input type="radio" name="stitch_color" class="custom_radio_btn" id="stitch_white_btn" checked="true">
+					<div class="color_btn" style="background-color: #F3F3F3;"></div>
+				</label><label class="color_inline_label">
+					<input type="radio" name="stitch_color" class="custom_radio_btn" id="stitch_black_btn">
+					<div class="color_btn"  style="background-color: #000000;"></div>
+				</label>
+			</div>
+		</div>
+	</div>
+
+
+
+  	<div id="main_canvas_container"></div>
+</body>
+
+</html>

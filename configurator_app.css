@@ -1,0 +1,109 @@
+/* Copyright (C) 2020  <name of author>
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+*:active {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -moz-tap-highlight-color: rgba(0,0,0,0);
+    tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+
+body {
+  background-color: #333333;
+  margin: 0;
+  overflow: hidden;
+}
+
+p {
+  margin: 0.1rem;
+}
+
+#main_canvas_container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 80vw;
+  height: 100vh;
+}
+
+.heading {
+  font-size: 2vw;
+}
+
+.controls-container {
+  font-size: 2vmin;
+  font-family: 'Lexend Tera';
+  display: block;
+  z-index: 1;
+  float: right;
+  position: relative;
+  width: 18vw;
+  height: 96vh;
+  margin-top: 1vh;
+  margin-right: 1vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  background-color: #666666;
+  overflow: auto;
+}
+
+.ui_block {
+  background-color: #33333340;
+  margin: 0.5vmin;
+  padding: 0.5vmin;
+}
+
+.color_div {
+  background-color: #33333340;
+  margin: 0.2vmin;
+  padding: 1vmin;
+}
+
+.color_btn {
+  padding: 2vmin;
+  border-width: 2px;
+  border-style: groove;
+  border-color: #aaaaaa;
+  margin: 3px;
+}
+
+.row {
+  height: 0.5vmin;
+}
+
+
+/* 
+ *Customize radio buttons for color selection 
+ */
+.custom_radio_btn {
+  /* Do not show the std radio button */
+  display: none;
+}
+
+.color_inline_label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+ /* Select "input" inside of "color_inline_label". Only select the input when "checked". Then select the immediate "div" sibling with '+' */
+.color_inline_label input:checked+div {
+  border: 3px;
+  border-style: groove;
+  border-color: #f5f5f5;
+}
