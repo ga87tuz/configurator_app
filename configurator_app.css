@@ -1,3 +1,4 @@
+/* configurator_app */
 /* Copyright (C) 2020  <name of author>
 
   This program is free software: you can redistribute it and/or modify
@@ -36,43 +37,75 @@ p {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 80vw;
+  width: 77vw;
   height: 100vh;
 }
 
-.heading {
-  font-size: 2vw;
+.footer {
+  position:absolute;
+   bottom:0;
+   width:100vw;
+}
+
+.heading1 {
+  font-size: 2vmin;
+}
+.heading2 {
+  font-size: 1.7vmin;
+}
+
+.cart {
+  font-size: 1.5vmin;
+  font-family: 'Lexend Tera';
+  z-index: 1;
+  float: left;
+  position: relative;
+  padding: 2vmin;
+}
+
+.cart_button {
+  padding: 2vmin;
+  border-width: 2px;
+  margin: 3px;
+  border-radius: 5px;
+  font-size: 1.5vmin;
+  font-family: 'Lexend Tera';
+  color: white;
+  background-color: #666666;;
 }
 
 .controls-container {
-  font-size: 2vmin;
+  font-size: 1.5vmin;
   font-family: 'Lexend Tera';
   display: block;
   z-index: 1;
   float: right;
   position: relative;
-  width: 18vw;
-  height: 96vh;
-  margin-top: 1vh;
-  margin-right: 1vw;
+  width: 21vw;
+  height: 97vh;
+  margin-top: 0.5vh;
+  margin-right: 0vw;
   padding-left: 1vw;
   padding-right: 1vw;
   padding-top: 1vh;
   padding-bottom: 1vh;
   background-color: #666666;
   overflow: auto;
+  border-radius: 5px;
 }
 
 .ui_block {
   background-color: #33333340;
   margin: 0.5vmin;
   padding: 0.5vmin;
+  border-radius: 5px;
 }
 
 .color_div {
   background-color: #33333340;
   margin: 0.2vmin;
   padding: 1vmin;
+  border-radius: 5px;
 }
 
 .color_btn {
@@ -81,6 +114,7 @@ p {
   border-style: groove;
   border-color: #aaaaaa;
   margin: 3px;
+  border-radius: 5px;
 }
 
 .row {

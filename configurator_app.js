@@ -1,3 +1,4 @@
+// configurator_app
 /* Copyright (C) 2020  <name of author>
 
   This program is free software: you can redistribute it and/or modify
@@ -47,7 +48,7 @@ b4w.register("configurator_app_main", function(exports, require) {
         m_app.init({
             canvas_container_id: "main_canvas_container",
             callback: init_cb,
-            show_fps: DEBUG,
+            show_fps: false,
             console_verbose: DEBUG,
             autoresize: true
         });
@@ -106,6 +107,8 @@ b4w.register("configurator_app_main", function(exports, require) {
         // var sel_obj = [m_scenes.get_object_by_name("front_left"), 
         //                 m_scenes.get_object_by_name("front_left_back")]; //init left is selected
 
+
+
         var outside_left = [m_scenes.get_object_by_name("front_left"), 
                             m_scenes.get_object_by_name("front_left_back")];
         var outside_right = [m_scenes.get_object_by_name("front_right"), 
@@ -142,37 +145,9 @@ b4w.register("configurator_app_main", function(exports, require) {
                 //m_data.unload(obj);
                 //m_obj.hide_all_by_data_id(0);
         });
-        // //select object
-        // var obj_dropdown = document.getElementById("obj_dropdown");
-        // obj_dropdown.addEventListener("change", function(e) {
-        //     console.log("selected object: " + this.value);
-        //     if(this.value == "left"){
-        //         sel_obj = [m_scenes.get_object_by_name("front_left"),
-        //                     m_scenes.get_object_by_name("front_left_back")];
-        //     } else if (this.value == "right"){
-        //         sel_obj = [m_scenes.get_object_by_name("front_right"), 
-        //                     m_scenes.get_object_by_name("front_right_back")];
-        //     } else if (this.value == "band"){
-        //         sel_obj = [m_scenes.get_object_by_name("band_top1"), 
-        //         m_scenes.get_object_by_name("band_top2"),
-        //         m_scenes.get_object_by_name("band_bottom1"), 
-        //         m_scenes.get_object_by_name("band_bottom2")];
-        //     } else if (this.value == "cord"){
-        //         sel_obj = [m_scenes.get_object_by_name("cord_left"), 
-        //         m_scenes.get_object_by_name("cord_right")];
-        //     }
-        //     else if (this.value == "stitch"){
-        //         sel_obj = [m_scenes.get_object_by_name("stitch_left"), 
-        //         m_scenes.get_object_by_name("stitch_right"), 
-        //         m_scenes.get_object_by_name("stitch_top_inside"), 
-        //         m_scenes.get_object_by_name("stitch_top_outside"), 
-        //         m_scenes.get_object_by_name("stitch_bottom_inside"), 
-        //         m_scenes.get_object_by_name("stitch_bottom_outside")];
-        //     }
-        // });
+        
 
-        /****change color of elements****/
-
+        /****Add on click listeners for color radio buttons****/
         //outside_left
         document.getElementById("left_white_btn").addEventListener("click", function(e) {
             outside_left.forEach(function (obj, idx) {
@@ -187,11 +162,6 @@ b4w.register("configurator_app_main", function(exports, require) {
         document.getElementById("left_bordeaux_btn").addEventListener("click", function(e) {
             outside_left.forEach(function (obj, idx) {
                 change_diffuse_collor(outside_left[idx], [0.150,0.008,0.0]);
-            })
-        });
-        document.getElementById("left_tanne_green_btn").addEventListener("click", function(e) {
-            outside_left.forEach(function (obj, idx) {
-                change_diffuse_collor(outside_left[idx], [0.0,0.019,0.0]);
             })
         });
         document.getElementById("left_royal_blue_btn").addEventListener("click", function(e) {
@@ -229,11 +199,6 @@ b4w.register("configurator_app_main", function(exports, require) {
         document.getElementById("right_bordeaux_btn").addEventListener("click", function(e) {
             outside_right.forEach(function (obj, idx) {
                 change_diffuse_collor(outside_right[idx], [0.150,0.008,0.0]);
-            })
-        });
-        document.getElementById("right_tanne_green_btn").addEventListener("click", function(e) {
-            outside_right.forEach(function (obj, idx) {
-                change_diffuse_collor(outside_right[idx], [0.0,0.019,0.0]);
             })
         });
         document.getElementById("right_royal_blue_btn").addEventListener("click", function(e) {
@@ -292,6 +257,14 @@ b4w.register("configurator_app_main", function(exports, require) {
                 change_diffuse_collor(stitch[idx], [0.0,0.0,0.0]);
             })
         });
+
+
+        /****Initialize "checked" states for color radio buttons****/
+        document.getElementById("left_dark_grey_btn").click();
+        document.getElementById("right_dark_grey_btn").click();
+        document.getElementById("band_white_btn").click();
+        document.getElementById("cord_white_btn").click();
+        document.getElementById("stitch_white_btn").click();
     }
 
     function change_diffuse_collor(obj, color) {
