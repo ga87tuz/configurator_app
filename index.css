@@ -1,0 +1,311 @@
+/* configurator_app */
+/* Copyright (C) 2020  <name of author>
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+*:active {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -moz-tap-highlight-color: rgba(0,0,0,0);
+    tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+
+body {
+  background-color: #333333;
+  margin: 0;
+  overflow: hidden;
+}
+
+p {
+  margin: 0.1rem;
+}
+
+#main_canvas_container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 77vw;
+  height: 100vh;
+}
+
+.footer {
+  position:absolute;
+   bottom:0;
+   width:100vw;
+}
+
+.heading1 {
+  font-size: 2vmin;
+}
+.heading2 {
+  font-size: 1.7vmin;
+}
+
+.cart {
+  font-size: 1.5vmin;
+  font-family: 'Lexend Tera';
+  z-index: 1;
+  float: left;
+  position: relative;
+  padding: 2vmin;
+}
+
+.number_picker {
+  width: 7vmin;
+  padding: 1vmin;
+  border-width: 2px;
+  margin: 1px;
+  border-radius: 5px;
+  font-size: 1.5vmin;
+  font-family: 'Lexend Tera';
+  color: white;
+  background-color: #666666;;
+}
+
+.cart_button {
+  padding: 1vmin;
+  border-width: 2px;
+  margin: 1px;
+  border-radius: 5px;
+  font-size: 1.5vmin;
+  font-family: 'Lexend Tera';
+  color: white;
+  background-color: #666666;;
+}
+
+
+.controls-container {
+  font-size: 1.5vmin;
+  font-family: 'Lexend Tera';
+  display: block;
+  z-index: 1;
+  float: right;
+  position: relative;
+  width: 21vw;
+  height: 98vh;
+  /* margin-top: 0.5vh; */
+  margin-right: 0vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  background-color: #666666;
+  overflow: auto;
+  /* border-radius: 5px; */
+}
+
+.ui_block {
+  background-color: #33333340;
+  margin: 0.5vmin;
+  padding: 0.5vmin;
+  border-radius: 5px;
+}
+
+.color_div {
+  background-color: #33333340;
+  margin: 0.2vmin;
+  padding: 1vmin;
+  border-radius: 5px;
+}
+
+.color_btn {
+  padding: 2vmin;
+  border-width: 2px;
+  border-style: groove;
+  border-color: #aaaaaa;
+  margin: 3px;
+  border-radius: 5px;
+}
+
+.row {
+  height: 0.5vmin;
+}
+
+
+/* 
+ *Customize radio buttons for color selection 
+ */
+.custom_radio_btn {
+  /* Do not show the std radio button */
+  display: none;
+}
+
+.color_inline_label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+ /* Select "input" inside of "color_inline_label". Only select the input when "checked". Then select the immediate "div" sibling with '+' */
+.color_inline_label input:checked+div {
+  border: 3px;
+  border-style: groove;
+  border-color: #f5f5f5;
+}
+
+
+/*Cart Popup modal*/
+
+.cart_popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 60vmin;
+  height: 35vmin;
+  overflow: auto;
+  background-color:  #33333370;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Lexend Tera';
+}
+
+.cart_popup_content {
+  margin: 3vmin;
+  padding: 2vmin;
+  width: 50vmin;
+  height: 24vmin;
+  background-color: #33333340;
+  color: white;
+  font-size: 2vmin;
+  font-family: 'Lexend Tera';
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.popup_btn {
+  position: relative;
+  margin-top: 7vmin;
+  padding: 1vmin;
+  border-width: 2px;
+  border-radius: 5px;
+  font-size: 1.5vmin;
+  font-family: 'Lexend Tera';
+  color: white;
+  background-color: #666666;;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  margin-right: 1vmin;
+  font-size: 3vmin;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.centered {
+  position: fixed;
+  top: 50vh;
+  left: 40vw;
+  transform: translate(-50%, -50%);
+}
+
+
+/******** slider style  */
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: linear-gradient(to right, rgb(255,229,200),rgb(224,172,105),rgb(10,5,3));
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+/* input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+} */
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 17px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: linear-gradient(to right, rgb(255,229,200),rgb(224,172,105),rgb(10,5,3));
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: linear-gradient(to right, rgb(255,229,200),rgb(224,172,105),rgb(10,5,3));
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: linear-gradient(to right, rgb(255,229,200),rgb(224,172,105),rgb(10,5,3));
+}
+/* input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+} */
+/******** end slider style  */

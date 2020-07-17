@@ -27,22 +27,67 @@
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 
+<!-- local <link type="text/css" rel="stylesheet" href="index.css"> -->
+<link rel="stylesheet" href="index.css" type="text/css">
 
-<link rel="stylesheet" href="configurator_app.css" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lexend+Tera" rel="stylesheet"> 
 
+<script>
+	//Forcing preserveDrawingBuffer to be set on redering
+	HTMLCanvasElement.prototype.getContext = function(origFn) {
+		return function(type, attribs) {
+			attribs = attribs || {};
+			attribs.preserveDrawingBuffer = true;
+			return origFn.call(this, type, attribs);
+		};
+	}(HTMLCanvasElement.prototype.getContext);
+	//end
+</script>
+
+
+
 <!-- local: -->
-<!-- <script type="text/javascript" src="..\..\dist\b4w.js"></script> --> 
+<!-- <script type="text/javascript" src="..\..\dist\b4w.js"></script> -->
 <!-- deploy: -->
 <script type="text/javascript" src="b4w.simple.min.js"></script>
+<!--<script type="text/javascript" src="./b4w.simple.min.js?v=06072020103700"></script>-->
 
-<script type="text/javascript" src="configurator_app.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="html2canvas.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+
+
+
+<!--<script>
+	var port = "80";
+	var ws_url = "wss:publicdym.github.io:" + port + "/websocket";
+	var protocols = ['https','echo-protocol'];
+	var socket = new WebSocket(ws_url);
+</script>-->
+
+<!--<script src="bundle.js"></script>-->
+<!--<script src="sessionhandler.js"></script>-->
+
+
 
 </head>
 
-<body>	
-	<div class="controls-container" id="controls-container">
+<body id="body">
+	<!-- get userID within html onload -->
+	<script type="text/javascript">
+		document.getElementById('body').onload = function() {
+			console.log("html - body loaded!");
+			console.log("html - userID      : "+userID);
+			userID = "body loaded ";
+			userID = parent.document.getElementById("wID").innerHTML;
+			console.log("html - userID      : "+userID);
+		}
+	</script>
+	<!--<h1>{{ name }} </h1>-->
 
+	<div class="controls-container" id="controls-container">
+		<!-- <div class="heading1" style="color: white;" id ="mask-designer"> -->
 		<div class="heading1" style="color: white;">
 			Masken Designer
 		</div>
@@ -54,6 +99,9 @@
 			</label>
 		</div>
 		<div class="row" ></div>
+		<div id="face_slider_div">
+			<input id="face_slider" type="range" min="0" max="27" value="0"/>
+		</div>
 		<div class="row" ></div>
 
 
@@ -186,15 +234,26 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Cart Popup -->
+	<div id="cart_popup" class="cart_popup centered">
+		<span class="close" id="cart_popup_close">&times;</span>
+		<div class="cart_popup_content">
+		<p id="popup_text"> Die Artikelauswahl wurde zum Warenkorb hinzugefügt.</p>
+		<button class="popup_btn" type="button" id="cart_popup_continue_btn">Weiter designen</button>
+		<button class="popup_btn" type="button" id="cart_popup_go_to_cart_btn" >Zum Warenkorb</button>
+		</div>
+  	</div>
+
 	<div class="footer">
 		<div class="cart">
-			<button type="button" class="cart_button" id="add_to_cart">In den Einkaufswagen</button>
-			<button type="button" class="cart_button" id="go_to_cart">Zur Kasse</button> 
+			<input type="number" class="number_picker" id="quantity" name="quantity" min="1" value="1" step="1" style = display:none>
+			<button type="button" class="cart_button" id="add_to_cart" style = display:none>In den Warenkorb</button>
+			<button type="button" class="cart_button" id="go_to_cart" style = display:none>Zum Warenkorb</button> 
 		</div>
 	</div>
-
-	<div id="main_canvas_container"></div>
-
+	
+	<div id="main_canvas_container"></div> <!-- canvas -->
 </body>
 
 </html>
